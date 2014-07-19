@@ -1,0 +1,9 @@
+{
+    "name": "CssTreemap",
+    "homepage": "https://github.com/agallou/CssTreemap",
+    "license": "MIT",
+    "dependencies": {
+        "d3": "3.4.11",
+        "cssParser": "https://github.com/therealglazou/jscssp.git"
+    }
+}
