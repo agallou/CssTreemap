@@ -22,12 +22,38 @@ module.exports = function (grunt) {
         },
 
         replace: {
-            dist: {
+            example: {
                 options: {
                     patterns: [
                         {
                             match: 'css_exemple',
                             replacement: '<%= grunt.file.read("example/example.css") %>'
+                        }
+                    ]
+                },
+                files: [
+                    {expand: false, flatten: true, src: ['dist/index.html'], dest: 'dist/index.html'}
+                ]
+            },
+            analytics_dev: {
+                options: {
+                    patterns: [
+                        {
+                            match: 'analytics',
+                            replacement: ''
+                        }
+                    ]
+                },
+                files: [
+                    {expand: false, flatten: true, src: ['dist/index.html'], dest: 'dist/index.html'}
+                ]
+            },
+            analytics_prod: {
+                options: {
+                    patterns: [
+                        {
+                            match: 'analytics',
+                            replacement: '<%= grunt.file.read("src/analytics.html") %>'
                         }
                     ]
                 },
@@ -93,7 +119,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['clean', 'bower-install-simple', 'copy', 'replace', 'concat', 'uglify' ]);
-    grunt.registerTask('push', ['default', 'gh-pages']);
+    grunt.registerTask('base', ['clean', 'bower-install-simple', 'copy', 'replace:example', 'concat', 'uglify' ]);
+    grunt.registerTask('default', ['base', 'replace:analytics_dev']);
+    grunt.registerTask('push', ['base', 'replace:analytics_prod', 'gh-pages']);
 
 };
