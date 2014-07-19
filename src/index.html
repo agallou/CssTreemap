@@ -2,8 +2,11 @@
     <head>
         <script src="main.js"></script>
         <link rel="stylesheet" href="main.css" />
+        <meta charset="UTF-8">
     </head>
     <body>
+        <h1>CSSTreemap</h1>
+
         <form>
             <label><input type="radio" name="mode" value="selectorcount" checked> Number of selectors</label>
             <label><input type="radio" name="mode" value="rulecount">Number of rules</label>
@@ -19,6 +22,20 @@
         <script>
             buildAll();
         </script>
+
+        <p>
+            When you generate CSS files with SASS and the option <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">:line_numbers</a> enabled, sass puts a comment like this to indicates which file/line emitted the selector.
+        </p>
+
+        <p>
+            If you paste the content of the file in the textarea, you will see a Treemap of the number of selectors/rules generated in the css per sass file
+        </p>
+
+        <p>
+            By default you will see the treemap for the AFUP's <a href="https://github.com/afup/barometre">"Barometre"</a> project.
+        </p>
+
+        <p>Inspired by <a href="https://twitter.com/francoisz">François Zaninotto</a> talk at the <a href="https://www.youtube.com/watch?v=bVjFJ2vJI34">PHPTour</a> (and the <a href="http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/internet-explorer-stylesheet-rule-selector-import-sheet-limit-maximum.aspx">IE limit</a> of 4095 rules per CSS file).</p>
     </body>
 </html>
 
