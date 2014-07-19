@@ -68,6 +68,13 @@ module.exports = function (grunt) {
             }
         },
 
+        watch: {
+            srv: {
+                files: ['src/**'],
+                tasks: ['default']
+            }
+        },
+
         'gh-pages': {
             options: {
                 base: 'dist'
@@ -82,6 +89,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks("grunt-bower-install-simple");
     grunt.loadNpmTasks('grunt-gh-pages');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['clean', 'bower-install-simple', 'copy', 'replace', 'concat', 'uglify' ]);
     grunt.registerTask('push', ['default', 'gh-pages']);
