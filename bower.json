@@ -4,6 +4,7 @@
     "license": "MIT",
     "dependencies": {
         "d3": "3.4.11",
-        "cssParser": "https://github.com/therealglazou/jscssp.git"
+        "cssParser": "https://github.com/therealglazou/jscssp.git",
+        "bootstrap": "3.2.0"
     }
 }

@@ -33,13 +33,16 @@ function buildTreeMap(files)
         .style("left", margin.left + "px")
         .style("top", margin.top + "px");
 
+    var titleFunction = function(d) { return d.children ? null : d.name; };
+
     var node = div.datum(root).selectAll(".node")
         .data(treemap.nodes)
         .enter().append("div")
         .attr("class", "node")
+        .attr("title", titleFunction)
         .call(position)
         .style("background", function(d) { return d.children ? color(d.name) : null; })
-        .text(function(d) { return d.children ? null : d.name; });
+        .text(titleFunction);
 
     d3.selectAll("input").on("change", function change() {
         var value = this.value === "selectorcount"
@@ -52,4 +55,6 @@ function buildTreeMap(files)
             .duration(1500)
             .call(position);
     });
+
+    $('#graphic-container .node').tooltip();
 }
