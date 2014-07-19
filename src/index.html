@@ -1,43 +1,18 @@
 <html>
     <head>
         <script src="main.js"></script>
+        <link rel="stylesheet" href="main.css" />
     </head>
     <body>
-        <style>
-
-            body {
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                margin: auto;
-                position: relative;
-                width: 960px;
-            }
-
-            form {
-                position: absolute;
-                right: 10px;
-                top: 10px;
-            }
-
-            .node {
-                border: solid 1px white;
-                font: 10px sans-serif;
-                line-height: 12px;
-                overflow: hidden;
-                position: absolute;
-                text-indent: 2px;
-            }
-
-        </style>
         <form>
             <label><input type="radio" name="mode" value="selectorcount" checked> Number of selectors</label>
             <label><input type="radio" name="mode" value="rulecount">Number of rules</label>
         </form>
 
-
         <div id="graphic-container">
         </div>
 
-        <textarea id="source" style="width: 100%;height: 180px">@@css_exemple</textarea>
+        <textarea id="source">@@css_exemple</textarea>
 
         <input type="button" id="update-graphic" onclick="buildAll();" value="Update"/>
 

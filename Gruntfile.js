@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         },
 
         concat: {
-            main: {
+            js: {
                 options: {
                     separator: ';'
                 },
@@ -51,12 +51,19 @@ module.exports = function (grunt) {
                     'src/index.js'
                 ],
                 dest: 'dist/main.js'
+            },
+            css: {
+                nonull: true,
+                src: [
+                    'src/main.css'
+                ],
+                dest: 'dist/main.css'
             }
         },
         uglify: {
             main: {
                 files: {
-                    '<%= concat.main.dest %>': ['<%= concat.main.dest %>']
+                    '<%= concat.js.dest %>': ['<%= concat.js.dest %>']
                 }
             }
         }
