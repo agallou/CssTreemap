@@ -66,8 +66,14 @@ module.exports = function (grunt) {
                     '<%= concat.js.dest %>': ['<%= concat.js.dest %>']
                 }
             }
-        }
+        },
 
+        'gh-pages': {
+            options: {
+                base: 'dist'
+            },
+            src: ['**']
+        }
     });
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -75,7 +81,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks("grunt-bower-install-simple");
+    grunt.loadNpmTasks('grunt-gh-pages');
 
     grunt.registerTask('default', ['clean', 'bower-install-simple', 'copy', 'replace', 'concat', 'uglify' ]);
+    grunt.registerTask('push', ['default', 'gh-pages']);
 
 };
