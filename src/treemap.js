@@ -33,13 +33,19 @@ function buildTreeMap(files)
         .style("left", margin.left + "px")
         .style("top", margin.top + "px");
 
-    var titleFunction = function(d) { return d.children ? null : d.name; };
+    var tooltipFunction = function(d) {
+	return d.children ? null : (d.name + "(" + d.selectorcount + " selectors/" + d.rulescount + " rules");
+    };
+
+    var titleFunction = function(d) {
+	return d.children ? null : (d.name);
+    };
 
     var node = div.datum(root).selectAll(".node")
         .data(treemap.nodes)
         .enter().append("div")
         .attr("class", "node")
-        .attr("title", titleFunction)
+        .attr("title", tooltipFunction)
         .call(position)
         .style("background", function(d) { return d.children ? color(d.name) : null; })
         .text(titleFunction);
