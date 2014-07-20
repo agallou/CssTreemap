@@ -34,7 +34,7 @@ function buildTreeMap(files)
         .style("top", margin.top + "px");
 
     var tooltipFunction = function(d) {
-	return d.children ? null : (d.name + "(" + d.selectorcount + " selectors/" + d.rulescount + " rules");
+	return d.children ? null : (d.name + "(" + d.selectorcount + " selectors/" + d.rulescount + " rules)");
     };
 
     var titleFunction = function(d) {
