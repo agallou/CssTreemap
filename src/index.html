@@ -38,6 +38,23 @@
         </p>
 
         <p>Inspired by <a href="https://twitter.com/francoisz">François Zaninotto</a> talk at the <a href="https://www.youtube.com/watch?v=bVjFJ2vJI34">PHPTour</a> (and the <a href="http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/internet-explorer-stylesheet-rule-selector-import-sheet-limit-maximum.aspx">IE limit</a> of 4095 rules per CSS file).</p>
+
+       <h2>How does the count works</h2>
+      This wil count fot 5 selectors and 2 rules :
+       <pre>
+/* line 22, ../../../src/Afup/BarometreBundle/Resources/assets/sass/vendor/bootstrap/_normalize.scss */
+article,
+aside,
+summary {
+    display: block;
+}
+
+/* line 32, ../../../src/Afup/BarometreBundle/Resources/assets/sass/vendor/bootstrap/_normalize.scss */
+audio,
+video {
+    display: inline-block;
+}
+      </pre>	
     </body>
 </html>
 
