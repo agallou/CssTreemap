@@ -31,10 +31,13 @@ function getFiles(source) {
             countInElement = element.mSelectorText.split(',').length;
         }
 
-        selectorcount += countInElement;
-        rulecount++;
 
         var isComment = typeof element.mSelectorText === 'undefined';
+
+	if (!isComment) {
+          selectorcount += countInElement;
+          rulecount++;
+	}
 
         var isNewFile = false;
 
