@@ -17,12 +17,20 @@ ga('send', 'pageview');
 
     </head>
     <body>
-        <h1>CSSTreemap</h1>
 
-        <form>
-            <label><input type="radio" name="mode" value="selectorcount" checked> Number of selectors</label>
-            <label><input type="radio" name="mode" value="rulecount">Number of rules</label>
-        </form>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h1 class="navbar-brand">CSSTreemap</h1>
+          </div>
+          <form class="navbar-form navbar-right">
+            <div>
+              <label class="radio-inline"><input type="radio" name="mode" value="selectorcount" checked> Number of selectors</label>
+              <label class="radio-inline"><input type="radio" name="mode" value="rulecount">Number of rules</label>
+            </div>
+          </form>
+       </div>
+      </nav>
 
         <div id="graphic-container">
         </div>
@@ -15645,7 +15653,9 @@ div.tooltip {
 }
 </textarea>
 
-        <input type="button" id="update-graphic" onclick="buildAll();" value="Update"/>
+	<div class="text-right">
+          <input type="button" id="update-graphic" onclick="buildAll();" value="Update" class="btn btn-primary btn-lg"/>
+	</div>
 
         <script>
             buildAll();
@@ -15662,10 +15672,12 @@ div.tooltip {
         <p>
             By default you will see the treemap for the AFUP's <a href="https://github.com/afup/barometre">"Barometre"</a> project.
         </p>
-
+  
         <p>Inspired by <a href="https://twitter.com/francoisz">François Zaninotto</a> talk at the <a href="https://www.youtube.com/watch?v=bVjFJ2vJI34">PHPTour</a> (and the <a href="http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/internet-explorer-stylesheet-rule-selector-import-sheet-limit-maximum.aspx">IE limit</a> of 4095 rules per CSS file).</p>
 
-       <h2>How does the count works</h2>
+       <p>You can find the source on <a href="https://github.com/agallou/CssTreemap">Github</a></p>
+
+       <h3>How does the count works</h3>
       This will count for 5 selectors and 2 rules :
        <pre>
 /* line 22, ../../../src/Afup/BarometreBundle/Resources/assets/sass/vendor/bootstrap/_normalize.scss */
