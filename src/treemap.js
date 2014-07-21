@@ -13,7 +13,7 @@ function buildTreeMap(files)
     };
 
 
-    var margin = {top: 40, right: 10, bottom: 10, left: 10},
+    var margin = {top: 5, right: 10, bottom: 10, left: 10},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 

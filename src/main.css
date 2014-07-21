@@ -1,14 +1,28 @@
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: auto;
     position: relative;
     width: 960px;
 }
 
-form {
-    position: absolute;
-    right: 10px;
-    top: 10px;
+h1 {
+  margin: 0 0 0 -15px;
+  font-size: 1.7em;
+}
+
+.navbar-form {
+  margin: 12px -15px 8px 0;
+}
+
+pre {
+  background: none;
+  font-size: 0.8em;
+  padding: 4px;
+}
+
+p {
+  margin: 10px 0 0;
+  color: #000;
+  font-size: 1.25em;
 }
 
 .node {
@@ -18,6 +32,8 @@ form {
     overflow: hidden;
     position: absolute;
     text-indent: 2px;
+    color: #000;
+    box-sizing: unset;
 }
 
 #source {

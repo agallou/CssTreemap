@@ -83,7 +83,8 @@ module.exports = function (grunt) {
             css: {
                 nonull: true,
                 src: [
-                    'src/main.css'
+ 		   'bower_components/bootstrap/dist/css/bootstrap.css',
+                   'src/main.css'
                 ],
                 dest: 'dist/main.css'
             }
