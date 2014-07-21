@@ -3,7 +3,7 @@ function getFiles(source) {
 
     var sheet = parser.parse(source, false, true);
 
-    var files = [];
+    var files = {};
     var key = 'No file';
     var selectorcount = 0;
     var rulecount = 0;
@@ -51,18 +51,26 @@ function getFiles(source) {
 
         var isLast = (i == sheet.cssRules.length-1);
         if (isNewFile || isLast) {
-            files.push({
-                selectorcount: selectorcount,
-                rulescount: rulecount,
-                name: lastFileName
-            });
+	    if ((typeof files[lastFileName]) != 'undefined') {
+              files[lastFileName].selectorcount += selectorcount;
+              files[lastFileName].rulescount += rulecount;
+            } else {
+              files[lastFileName] = {
+                  selectorcount: selectorcount,
+                  rulescount: rulecount,
+                  name: lastFileName
+              };
+            }
             key = element.parsedCssText;
             selectorcount = 0;
             rulecount = 0;
         }
 
+
         lastFileName = filename;
     }
 
-    return files;
+    return  $.map(files, function(value, index) {
+      return [value];
+    });
 }
